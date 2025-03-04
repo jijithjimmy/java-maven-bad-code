@@ -4,14 +4,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>java-maven-project</artifactId>
+    <artifactId>java-bad-code-project</artifactId>
     <version>1.0.0</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
 
-        <!-- SonarQube Project Settings -->
+        <!-- SonarQube Configuration -->
         <sonar.projectKey>java-bad-code-project</sonar.projectKey>
         <sonar.projectName>Java Bad Code Project</sonar.projectName>
         <sonar.host.url>http://34.230.86.237:9000</sonar.host.url>
@@ -19,7 +19,7 @@
     </properties>
 
     <dependencies>
-        <!-- JUnit for Testing -->
+        <!-- JUnit for Unit Testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -53,11 +53,14 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.8</version>
                 <executions>
+                    <!-- Prepare Jacoco Agent -->
                     <execution>
+                        <id>prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
+                    <!-- Generate Jacoco Report -->
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
