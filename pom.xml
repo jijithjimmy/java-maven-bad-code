@@ -10,6 +10,12 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+
+        <!-- SonarQube Project Settings -->
+        <sonar.projectKey>java-bad-code-project</sonar.projectKey>
+        <sonar.projectName>Java Bad Code Project</sonar.projectName>
+        <sonar.host.url>http://34.230.86.237:9000</sonar.host.url>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <dependencies>
@@ -50,6 +56,13 @@
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>
